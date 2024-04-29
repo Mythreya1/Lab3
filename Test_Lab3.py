@@ -2,7 +2,6 @@ import Lab3
 
 print("Test_Lab3")
 
-
 def test_bubble_sort_ascending():
     result = []
     input_arr = [64, 34, 25, 12, 22, 11, 90]
@@ -28,3 +27,27 @@ def test_bubble_sort_invalid():
     result = Lab3.bubble_sort(input_arr, 3)
 
     assert (result == [])
+
+def test_bubble_sort_equal_ten():
+    result = []
+    input_arr = [64, 34, 25, 12, 22, 11, 90, 54, 76, 39, 98]
+
+    result = Lab3.bubble_sort(input_arr, 3)
+
+    assert (result == 1)
+
+def test_bubble_sort_equal_zero():
+    result = []
+    input_arr = []
+
+    result = Lab3.bubble_sort(input_arr, 3)
+
+    assert (result == 0)
+
+def test_bubble_sort_not_int():
+    result = []
+    input_arr = [5.0]
+
+    result = Lab3.bubble_sort(input_arr, 3)
+
+    assert (result == 2)
