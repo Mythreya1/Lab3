@@ -10,7 +10,6 @@ employee_data = [
 
 def get_employees_by_age_range(age_lower_limit, age_upper_limit):
     result = []
-
     # check for age limits and append the item to result
     for item in employee_data:
         if int(item["age"]) > int(age_lower_limit) and int(item["age"]) < int(age_upper_limit):
@@ -22,21 +21,24 @@ def calculate_average_salary():
     total = 0
     average = 0
 
-    #add your implementation to calculate here
+    for item in employee_data:
+        total += item["salary"]
 
+    average = total / len(employee_data)
 
     return average
 
 def get_employees_by_dept(department):
     result = []
 
-    # Add your implementation from here
-
+    for item in employee_data:
+        if item["department"] == department:
+            result.append(item)
 
     return result
 
 def display_all_records():
-    print(("Name" + "\t" +"Age" +"\t" +"Department" +"\t" +"Salary" ).expandtabs(15))
+    print(("Name" + "\t" +"Age" +"\t" +"Department" + "\t" +"Salary" ).expandtabs(15))
     for item in employee_data:
         print((item["name"] + "\t" + str(item["age"]) + "\t" + item["department"] + "\t" + str(item["salary"])).expandtabs(15))
 
@@ -57,10 +59,9 @@ def display_main_menu():
     print("3 - Display employee within age range")
     print("4 - Display employee in a department")
 
-
     print("Q - Quit")
 
-    option = input("Enter selection =>")
+    option = input("Enter selection =>").capitalize()
 
     if option == '1':
         display_all_records()
@@ -75,9 +76,8 @@ def display_main_menu():
         employee_info = get_employees_by_age_range(age_lower_limit, age_upper_limit)
         display_records(employee_info)
 
-
     elif option == '4':
-        department = input("Name of Department = ")
+        department = input("Name of Department = ").capitalize()
         employee_info = get_employees_by_dept(department)
         display_records(employee_info)
 
