@@ -24,7 +24,6 @@ def cost_of_fruit(fruit, quantity):
     print("cost of ", quantity, fruit, "=", cost)
     return cost
 
-
 def main():
 
     cost_of_fruit('apple', 10)
